@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detail</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <!--Navigasi-->
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">Detail</a>
+            <a href="./#teams" class="sidenav-trigger" data-target="nav-mobile" id="btnBack">
+                <i class="material-icons">arrow_back</i>
+            </a>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi-->
+
+    <div id="body-content">
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s6"><a class="active" href="#team-info">Team</a></li>
+                            <li class="tab col s6"><a href="#team-squad">Squad</a></li>
+                        </ul>
+                    </div>
+                    <div id="team-info" class="col s12">
+                        <div class="row" id="teamDetail">
+                        </div>
+                    </div>
+                    <div id="team-squad" class="col s12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <button class="btn-floating btn-large red modal-trigger" id="save">
+            <i class="large material-icons">save</i>
+        </button>
+    </div>
+
+    <div class="fixed-action-btn">
+        <button class="btn-floating btn-large red modal-trigger" id="delete">
+            <i class="large material-icons">delete</i>
+        </button>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script type="text/javascript" src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/register-service-worker.js"></script>
+    <script src="js/team-detail.js"></script>
+</body>
+
+</html>

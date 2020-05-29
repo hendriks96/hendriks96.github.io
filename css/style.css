@@ -1,0 +1,108 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ .card-img { width:800px;}
+
+
+
+ @media only screen
+ and (max-width : 480px) {
+ .card-img { width:100px;}
+ }
+ 
+ 
+ @media only screen
+ and (max-width : 767px) {
+ .card-img { width:400px;}
+ }
+
+
+ .center-cropped {
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+ .crs-item {
+	width: 340px !important;
+	padding: 20px;
+}
+
+.card-crs{ 
+	border-radius: 8px; 
+	position: relative !important;
+	right: 20px !important;
+}
+
+.left-margin-12px {
+  margin-left: 12px;
+}
+
+.left-margin-6px{
+  margin-left: 6px;
+}
+
+.right-margin-12px{
+  margin-right: 12px;
+}
+
+.img-badge {
+  width: 50px;
+  height: 50px;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
