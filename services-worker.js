@@ -26,7 +26,9 @@ if (workbox) {
         { url: '/js/team-detail.js', revision: '1' },
         { url: '/js/match-detail.js', revision: '1' },
         { url: '/js/idb.js', revision: '1' }
-    ]);
+    ], {
+        ignoreUrlParametersMatching: [/.*/]
+    });
     //PAGES
     workbox.routing.registerRoute(
         new RegExp('/pages/'),

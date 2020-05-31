@@ -143,8 +143,9 @@ const getListMatch = () => {
     caches.match(url).then(function (response) {
       if (response) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           renderListMatch(data.matches);
+          $('.progress').hide();
         })
       }
     })
@@ -155,6 +156,7 @@ const getListMatch = () => {
     .then(json)
     .then(function (data) {
       renderListMatch(data.matches);
+      $('.progress').hide();
     })
     .catch(function (error) {
       console.log("error" + error);
@@ -538,8 +540,9 @@ const getMatchDetailById = () => {
     caches.match(base_url + "matches/" + idParam).then(function (response) {
       if (response) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           renderDetailMatch(data);
+          $('.progress').hide();
         })
       }
     })
@@ -550,6 +553,7 @@ const getMatchDetailById = () => {
     .then(json)
     .then(function (data) {
       renderDetailMatch(data);
+      $('.progress').hide();
     })
     .catch(function (error) {
       console.log(error);
@@ -563,8 +567,9 @@ const getStandingList = idLeague => {
     caches.match(urlStandings).then(function (response) {
       if (response) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           renderListStandings(data.standings[0].table);
+          $('.progress').hide();
         })
       }
     })
@@ -575,6 +580,7 @@ const getStandingList = idLeague => {
     .then(json)
     .then(function (data) {
       renderListStandings(data.standings[0].table);
+      $('.progress').hide();
     })
     .catch(function (error) {
       console.log(error);
@@ -587,8 +593,9 @@ const getListTeams = idLeague => {
     caches.match(`${base_url}competitions/${idLeague}/teams`).then(function (response) {
       if (response) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           renderListTeams(data.teams);
+          $('.progress').hide();
         })
       }
     })
@@ -598,6 +605,7 @@ const getListTeams = idLeague => {
     .then(statusres)
     .then(json)
     .then(function (data) {
+      $('.progress').hide();
       renderListTeams(data.teams);
     })
     .catch(function (error) {
@@ -615,8 +623,9 @@ const getTeamDetailById = () => {
       caches.match(`${base_url}teams/${idTeam}`).then(function (response) {
         if (response) {
           response.json().then(function (data) {
-            console.log(data);
+            // console.log(data);
             renderTeamDetail(data);
+            $('.progress').hide();
             resolve(data);
           })
         }
@@ -627,7 +636,14 @@ const getTeamDetailById = () => {
       .then(statusres)
       .then(json)
       .then(function (data) {
+        dbTeamById(data.id).then(function (detail) {
+          if (detail !== undefined) {
+            $('#btnSaved').text('favorite');
+          }
+        });
+
         renderTeamDetail(data);
+        $('.progress').hide();
         resolve(data);
       })
       .catch(function (error) {
@@ -642,29 +658,42 @@ const renderListTeamSaved = (details) => {
   const ctnTeamSaved = document.getElementById("itemTeamSaved");
   ctnTeamSaved.innerHTML = "";
 
-  details.forEach((detail) => {
-    let urlImage = detail.crestUrl;
-    urlImage = urlImage.replace(/^http:\/\//i, 'https://');
+  if (details.length == 0) {
+    ctnTeamSaved.innerHTML = `
+      <di class="row">
+          <div class="col s12 center">
+              <h5>Ops... You dont have favorite teams</h5>
+          </div>
+      </di>`;
 
-    ctnTeamSaved.innerHTML += `
-    <div class="col s12">
-        <a href="./team-detail.html?id=${detail.id}&saved=true">
-            <div class="card small">
-                <div class="card-image">
-                    <img src="${urlImage}">
-                </div>
-                <div class="card-content center">
-                    <div class="row">
-                        <div class="col s12">
-                            <span class="card-title">${detail.name}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-    `;
-  });
+  } else {
+    details.forEach((detail) => {
+      let urlImage = detail.crestUrl;
+      urlImage = urlImage.replace(/^http:\/\//i, 'https://');
+
+      ctnTeamSaved.innerHTML += `
+      <div class="col s12">
+          <a href="./team-detail.html?id=${detail.id}&saved=true">
+              <div class="card small">
+                  <div class="card-image">
+                      <img src="${urlImage}">
+                  </div>
+                  <div class="card-content center">
+                      <div class="row">
+                          <div class="col s12">
+                              <span class="card-title">${detail.name}</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </a>
+      </div>
+      `;
+    });
+
+  }
+
+
 
 }
 

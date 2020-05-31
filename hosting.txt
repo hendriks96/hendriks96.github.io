@@ -1,0 +1,2 @@
+firebase : https://football-app-6562a.web.app
+github pages : https://hendriks96.github.io/

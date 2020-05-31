@@ -31,6 +31,7 @@ $(document).ready(function () {
     btnSave.onclick = function () {
         item.then(function (detail) {
             saveForLater(detail);
+            $('#btnSaved').text('favorite');
         });
     }
     $('.tabs').tabs();
