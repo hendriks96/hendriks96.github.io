@@ -26,12 +26,11 @@ const paramStandings = {
 const options = {
   method: "GET",
   headers: {
-    "X-Auth-Token": "be364d7e85174afe8c148764b6b650f9"
+    "X-Auth-Token": "c290b1ce5fe2457e87e4ab09ac1d7adb"
   }
 };
 
 const renderListMatch = (matches) => {
-  console.log("ajhskas");
   const elementCarousel = document.getElementById("contentItemSlider");
   const elmItemListMatch = document.getElementById("itemListMatch");
 
