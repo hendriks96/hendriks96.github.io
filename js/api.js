@@ -31,6 +31,7 @@ const options = {
 };
 
 const renderListMatch = (matches) => {
+  console.log("ajhskas");
   const elementCarousel = document.getElementById("contentItemSlider");
   const elmItemListMatch = document.getElementById("itemListMatch");
 
